@@ -22,7 +22,6 @@ const safeUrl = escapeForEmailHref(downloadUrl);
 const { data, error } = await resend.emails.send({
 from: `CryptoLab <${fromEmail}>`,
 to,
-replyTo: "supportocryptolab@gmail.com",
 subject: "Il tuo TradingBook è pronto 🚀",
 html: buildEmailHTML(safeUrl, downloadUrl),
 text: buildEmailText(downloadUrl),
