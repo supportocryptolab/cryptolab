@@ -20,7 +20,7 @@ export async function POST() {
               description:
                 "La guida completa in italiano per il trading crypto — PDF 136+ pagine",
             },
-            unit_amount: 1499, // €14,99
+            unit_amount: 1, // €14,99
           },
           quantity: 1,
         },
