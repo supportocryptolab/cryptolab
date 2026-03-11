@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-title: "Termini di Servizio | CryptoLab",
+title: "Terms of Service | CryptoLab",
 description: "Termini di Servizio di CryptoLab",
 };
 
@@ -27,7 +27,7 @@ e l’acquisto dei prodotti digitali offerti attraverso di esso.
 <h2 className="mb-3 text-2xl font-semibold text-white">2. Prodotto</h2>
 <p>
 Il sito vende un prodotto digitale in formato PDF denominato
-<strong> TradingBook</strong> (o altra denominazione commerciale indicata sul sito).
+<strong> TradingBook</strong>.
 </p>
 <p className="mt-3">
 Il prodotto viene consegnato tramite email o link di download successivamente al pagamento.
@@ -47,10 +47,6 @@ senza preavviso. Il pagamento viene gestito tramite piattaforme esterne sicure, 
 <p>
 Dopo il completamento del pagamento, il cliente riceverà un’email contenente le istruzioni
 e/o il link per scaricare il prodotto acquistato.
-</p>
-<p className="mt-3">
-È responsabilità del cliente inserire correttamente il proprio indirizzo email al momento
-dell’acquisto.
 </p>
 </section>
 
@@ -77,10 +73,6 @@ CryptoLab o dei rispettivi aventi diritto.
 <p>
 I contenuti del prodotto digitale hanno finalità esclusivamente informative ed educative.
 Non costituiscono consulenza finanziaria, di investimento o professionale.
-</p>
-<p className="mt-3">
-L’utente resta l’unico responsabile delle proprie decisioni e dell’eventuale utilizzo delle
-informazioni contenute nel prodotto.
 </p>
 </section>
 

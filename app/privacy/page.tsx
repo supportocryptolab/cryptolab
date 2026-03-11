@@ -5,7 +5,7 @@ title: "Privacy Policy | CryptoLab",
 description: "Privacy Policy di CryptoLab",
 };
 
-export default function PrivacyPolicyPage() {
+export default function PrivacyPage() {
 return (
 <main className="relative z-10 min-h-screen px-6 py-20 text-white">
 <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/[0.04] p-8 shadow-2xl backdrop-blur-xl sm:p-12">
@@ -68,10 +68,6 @@ I pagamenti vengono gestiti tramite provider esterni, tra cui <strong>Stripe</st
 L’invio delle email operative può essere gestito tramite <strong>Resend</strong>.
 L’archiviazione e la generazione dei link temporanei per il download possono essere gestite
 tramite <strong>Supabase</strong>.
-</p>
-<p className="mt-3">
-Tali soggetti trattano i dati secondo le proprie informative privacy e in qualità di autonomi
-titolari o responsabili del trattamento, a seconda del servizio fornito.
 </p>
 </section>
 
