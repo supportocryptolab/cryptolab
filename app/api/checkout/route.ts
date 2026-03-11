@@ -10,6 +10,9 @@ export async function POST() {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      branding_settings: {
+        display_name : "CryptoLab" , 
+     }, 
 
       line_items: [
         {
