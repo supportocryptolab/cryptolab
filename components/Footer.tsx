@@ -23,12 +23,6 @@ export default function Footer() {
             <a href="/terms" className="hover:text-brand-text transition-colors duration-200">
               Termini di Servizio
             </a>
-            <a href="/refund" className="hover:text-brand-text transition-colors duration-200">
-              Politica di Rimborso
-            </a>
-            <a href="mailto:support@cryptolab.com" className="hover:text-brand-cyan transition-colors duration-200">
-              support@cryptolab.com
-            </a>
           </nav>
         </div>
 
