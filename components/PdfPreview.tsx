@@ -13,6 +13,7 @@ const pages = [
 "/preview/page-5.jpg",
 ];
 
+// Desktop / tablet largo
 const spreadPositionsDesktop = [
 { x: -260, y: 30, rotate: -18, z: 10 },
 { x: -130, y: 10, rotate: -10, z: 20 },
@@ -21,48 +22,60 @@ const spreadPositionsDesktop = [
 { x: 260, y: 30, rotate: 18, z: 10 },
 ];
 
+// Mobile / schermi stretti: pagine più vicine
+const spreadPositionsMobile = [
+{ x: -110, y: 18, rotate: -14, z: 10 },
+{ x: -55, y: 8, rotate: -8, z: 20 },
+{ x: 0, y: 0, rotate: 0, z: 30 },
+{ x: 55, y: 8, rotate: 8, z: 20 },
+{ x: 110, y: 18, rotate: 14, z: 10 },
+];
+
 export default function PdfPreview() {
 const [isOpen, setIsOpen] = useState(false);
 const [activePage, setActivePage] = useState<string | null>(null);
 
 return (
 <section className="relative overflow-hidden px-6 py-24 sm:py-32">
-<div className="mx-auto max-w-6xl">
+<div className="max-w-6xl mx-auto">
 <Reveal>
-<div className="mb-14 text-center">
-<div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
-<span className="h-2 w-2 rounded-full bg-brand-cyan animate-pulse" />
-<span className="text-sm font-medium text-brand-muted">
+<div className="text-center mb-14">
+<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-5">
+<span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
+<span className="text-sm text-brand-muted font-medium">
 Anteprima gratuita
 </span>
 </div>
 
-<h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+<h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight">
 Sfoglia le prime
 <span className="gradient-text"> 5 pagine </span>
 del PDF
 </h2>
 
-<p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-brand-muted">
+<p className="text-brand-muted text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
 Dai un’occhiata concreta a come è strutturato il{" "}
-<span className="font-semibold text-brand-text">TradingBook</span>
+<span className="text-brand-text font-semibold">
+TradingBook
+</span>
 : chiaro, ordinato e pensato per chi vuole capire davvero il
 trading crypto partendo da zero.
 </p>
 </div>
 </Reveal>
 
-{/* DESKTOP / TABLET FAN PREVIEW */}
+{/* STACK / FAN PREVIEW */}
 <Reveal delay={0.08}>
-<div className="relative hidden h-[540px] items-center justify-center sm:flex md:h-[680px]">
+<div className="relative flex h-[430px] sm:h-[540px] md:h-[680px] items-center justify-center">
 {/* ambient glow */}
 <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-<div className="h-[320px] w-[620px] rounded-full bg-[#4D6EE3]/10 blur-[120px]" />
+<div className="h-[220px] w-[300px] sm:h-[320px] sm:w-[620px] rounded-full bg-[#4D6EE3]/10 blur-[90px] sm:blur-[120px]" />
 </div>
 
 <div className="relative flex h-full w-full max-w-[900px] items-center justify-center">
 {pages.map((src, i) => {
-const spread = spreadPositionsDesktop[i];
+const spreadDesktop = spreadPositionsDesktop[i];
+const spreadMobile = spreadPositionsMobile[i];
 
 return (
 <motion.button
@@ -77,9 +90,23 @@ setActivePage(src);
 }}
 initial={false}
 animate={{
-x: isOpen ? spread.x : i * 6,
-y: isOpen ? spread.y : i * 2,
-rotate: isOpen ? spread.rotate : i % 2 === 0 ? -4 + i : 4 - i,
+x: isOpen
+? window.innerWidth < 640
+? spreadMobile.x
+: spreadDesktop.x
+: i * 4,
+y: isOpen
+? window.innerWidth < 640
+? spreadMobile.y
+: spreadDesktop.y
+: i * 2,
+rotate: isOpen
+? window.innerWidth < 640
+? spreadMobile.rotate
+: spreadDesktop.rotate
+: i % 2 === 0
+? -4 + i
+: 4 - i,
 scale: isOpen ? 1 : 1 - i * 0.02,
 }}
 transition={{
@@ -89,13 +116,23 @@ damping: 18,
 mass: 0.8,
 }}
 whileHover={{
-y: isOpen ? spread.y - 16 : -12,
+y: isOpen
+? window.innerWidth < 640
+? spreadMobile.y - 10
+: spreadDesktop.y - 16
+: -12,
 scale: 1.03,
 }}
 className="absolute focus:outline-none"
-style={{ zIndex: isOpen ? spread.z : 50 - i }}
+style={{
+zIndex: isOpen
+? window.innerWidth < 640
+? spreadMobile.z
+: spreadDesktop.z
+: 50 - i,
+}}
 >
-<div className="relative aspect-[3/4] w-[290px] overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm md:w-[330px]">
+<div className="relative aspect-[3/4] w-[135px] overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:w-[240px] md:w-[330px] sm:rounded-[24px]">
 <Image
 src={src}
 alt={`Anteprima pagina ${i + 1}`}
@@ -105,7 +142,7 @@ className="object-cover"
 
 <div className="absolute inset-0 bg-gradient-to-t from-[#070B16]/35 via-transparent to-transparent" />
 
-<div className="absolute left-4 top-4 rounded-full border border-white/10 bg-[#070B16]/70 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-md">
+<div className="absolute top-2 left-2 sm:top-4 sm:left-4 rounded-full border border-white/10 bg-[#070B16]/70 px-2 py-1 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium text-white/80 backdrop-blur-md">
 Pagina {i + 1}
 </div>
 </div>
@@ -116,49 +153,9 @@ Pagina {i + 1}
 </div>
 </Reveal>
 
-{/* MOBILE SCROLL PREVIEW */}
-<Reveal delay={0.08}>
-<div className="sm:hidden">
-<div className="pointer-events-none mb-6 flex items-center justify-center">
-<div className="h-[180px] w-[280px] rounded-full bg-[#4D6EE3]/10 blur-[80px]" />
-</div>
-
-<div className="-mx-6 overflow-x-auto px-6 pb-4">
-<div className="flex w-max gap-3 pr-6">
-{pages.map((src, i) => (
-<motion.button
-key={src}
-type="button"
-onClick={() => setActivePage(src)}
-whileTap={{ scale: 0.98 }}
-whileHover={{ y: -4 }}
-className="relative shrink-0 focus:outline-none"
->
-<div className="relative aspect-[3/4] w-[170px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.04] shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur-sm">
-<Image
-src={src}
-alt={`Anteprima pagina ${i + 1}`}
-fill
-className="object-cover"
-/>
-
-<div className="absolute inset-0 bg-gradient-to-t from-[#070B16]/35 via-transparent to-transparent" />
-
-<div className="absolute left-3 top-3 rounded-full border border-white/10 bg-[#070B16]/70 px-2.5 py-1 text-[11px] font-medium text-white/80 backdrop-blur-md">
-Pagina {i + 1}
-</div>
-</div>
-</motion.button>
-))}
-</div>
-</div>
-</div>
-</Reveal>
-
 {/* controls */}
 <Reveal delay={0.14}>
 <div className="mt-4 flex flex-col items-center justify-center gap-4">
-<div className="hidden sm:block">
 {!isOpen ? (
 <button
 onClick={() => setIsOpen(true)}
@@ -174,17 +171,10 @@ className="inline-flex items-center justify-center rounded-2xl border border-whi
 Richiudi anteprima
 </button>
 )}
-</div>
 
 <p className="max-w-xl text-center text-sm text-brand-muted/70">
-<span className="hidden sm:inline">
 Clicca una volta per aprire le pagine a ventaglio, clicca una pagina
 per vederla ingrandita.
-</span>
-<span className="sm:hidden">
-Scorri lateralmente per vedere tutte le pagine e toccane una per
-aprirla.
-</span>
 </p>
 </div>
 </Reveal>
@@ -192,7 +182,7 @@ aprirla.
 {/* CTA */}
 <Reveal delay={0.22}>
 <div className="mt-12 text-center">
-<p className="mb-6 text-brand-muted">Ti piace come è strutturato?</p>
+<p className="text-brand-muted mb-6">Ti piace come è strutturato?</p>
 
 <a
 href="#"
