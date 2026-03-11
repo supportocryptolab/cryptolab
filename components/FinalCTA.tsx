@@ -33,7 +33,7 @@ export default function FinalCTA() {
 
         <Reveal delay={0.1}>
           <p className="text-brand-muted text-lg mb-10 max-w-lg mx-auto">
-            Scarica Le Basi-TradingBook e inizia a fare trading crypto con metodo, strategia e consapevolezza.
+            Scarica il TradingBook e inizia a fare trading crypto con metodo, strategia e consapevolezza.
           </p>
         </Reveal>
 
@@ -53,7 +53,7 @@ export default function FinalCTA() {
 
         <Reveal delay={0.3}>
           <p className="mt-6 text-sm text-brand-muted/50">
-            Pagamento unico · Nessun abbonamento · Rimborso entro 14 giorni
+            Pagamento unico · Nessun abbonamento 
           </p>
         </Reveal>
       </div>

@@ -23,10 +23,6 @@ const faqs = [
     a: "Assolutamente sì. Il checkout è gestito da Stripe, leader mondiale nei pagamenti online. Non memorizziamo i dati della tua carta.",
   },
   {
-    q: "Posso avere un rimborso?",
-    a: "Sì, se il contenuto non soddisfa le tue aspettative, puoi richiedere un rimborso completo entro 14 giorni dall'acquisto scrivendo a support@cryptolab.com.",
-  },
-  {
     q: "Il libro viene aggiornato?",
     a: "Sì. Gli acquirenti ricevono gli aggiornamenti futuri gratuitamente via email quando disponibili.",
   },
@@ -36,7 +32,7 @@ const faqs = [
   },
   {
     q: "Come posso contattarvi?",
-    a: "Puoi scriverci a support@cryptolab.com. Rispondiamo entro 24 ore nei giorni lavorativi.",
+    a: "Puoi scriverci a supportocryptolab@gmail.com. Rispondiamo entro 24 ore nei giorni lavorativi.",
   },
 ];
 

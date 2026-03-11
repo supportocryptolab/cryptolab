@@ -29,7 +29,7 @@ const guarantees = [
       </svg>
     ),
     title: "Supporto dedicato",
-    desc: "Hai domande? Scrivici a support@cryptolab.com e ti rispondiamo entro 24 ore.",
+    desc: "Hai domande? Scrivici a supportocryptolab@gmail.com e ti rispondiamo entro 24 ore.",
   },
 ];
 
