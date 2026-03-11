@@ -11,7 +11,7 @@ return (
 <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/[0.04] p-8 shadow-2xl backdrop-blur-xl sm:p-12">
 <h1 className="mb-4 text-4xl font-bold tracking-tight">Termini di Servizio</h1>
 <p className="mb-10 text-white/70">
-Ultimo aggiornamento: <strong>[INSERISCI DATA]</strong>
+Ultimo aggiornamento: <strong>11/03/2026</strong>
 </p>
 
 <div className="space-y-8 text-white/80 leading-relaxed">

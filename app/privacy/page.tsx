@@ -11,14 +11,14 @@ return (
 <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/[0.04] p-8 shadow-2xl backdrop-blur-xl sm:p-12">
 <h1 className="mb-4 text-4xl font-bold tracking-tight">Privacy Policy</h1>
 <p className="mb-10 text-white/70">
-Ultimo aggiornamento: <strong>[INSERISCI DATA]</strong>
+Ultimo aggiornamento: <strong>11/03/2026</strong>
 </p>
 
 <div className="space-y-8 text-white/80 leading-relaxed">
 <section>
 <h2 className="mb-3 text-2xl font-semibold text-white">1. Titolare del trattamento</h2>
 <p>
-Il presente sito è gestito da <strong>[INSERISCI NOME / RAGIONE SOCIALE]</strong>,
+Il presente sito è gestito da <strong>CoCa LTD</strong>,
 titolare del trattamento dei dati personali raccolti tramite il sito
 CryptoLab.
 </p>
