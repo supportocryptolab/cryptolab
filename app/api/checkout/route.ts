@@ -18,7 +18,7 @@ export async function POST() {
             product_data: {
               name: "Le Basi-TradingBook",
               description:
-                "La guida completa in italiano per il trading crypto — PDF 136+ pagine",
+                "La guida completa in italiano per il trading crypto — PDF 60+ pagine",
             },
             unit_amount: 1499, // €14,99
           },
